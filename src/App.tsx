@@ -1,26 +1,20 @@
 import { useState } from "react";
 import "./App.css";
-
-
-type AppState = {
-  name: string;
-  children: { id: number; name: string }[];
-};
+import { ICar } from "./components/interfaces/car";
+import { Button } from "./components";
 
 function App() {
-  const [info] = useState<AppState>({
-    name: "Dat",
-    children: [
-      { id: 1, name: "Thanh Tung" },
-      { id: 2, name: "Tung Lam" },
-    ],
-  });
+  const [cars, setCars] = useState<ICar[]>();
+  const [isLoading, SetIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<null>(null)
+  const addCar = (car: ICar) => { }
+  const removeCar = (id: number | string) => { };
+  const listCar = () => { };
+
   return (
     <>
-      <Hello name="Son" age={20} info={info} />
-      <Sum />
+      <Button loading={isLoading} primary text="Them" />
+      <Button danger text="Xoa" />
     </>
-  );
+  )
 }
-
-export default App;
