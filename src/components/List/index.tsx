@@ -1,9 +1,18 @@
-import React from "react";
+import { ICar } from "../../interfaces/car";
+import { Item } from "..";
 
-type Props = {}
+type ListProps = {
+    data: ICar[];
+}
 
-const List = (props: Props) => {
-    return <div>List</div>
+const List = ({ data }: ListProps) => {
+    return (
+        <ul>
+            {data?.map((car) => (
+                <Item key={car.id} car={car} />
+            ))}
+        </ul>
+    )
 };
 
 export default List
